@@ -8,4 +8,8 @@ export const ar = {
     email: "ادخل الايميل",
     phone: "ادخل رقم الهاتف(٠٧٠٠٠٠٠٠٠٠٠٠)",
   },
+  navBar:{
+    more:"المزيد",
+    dashboard:"لوحة التحكم"
+  }
 };

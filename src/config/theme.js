@@ -5,6 +5,7 @@ const theme = {
     White_Color:"#fff",
     Error_Color:"#ff6464",
     Splash_Color:"#0a11179e",
+    Gray_Color:"#0a11179e",
 
 };
 

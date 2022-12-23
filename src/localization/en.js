@@ -8,4 +8,8 @@ export const en = {
     email: "Email",
     phone: "Phone (07XXXXXXXX)",
   },
+  navBar:{
+    more:"More",
+    dashboard:"Dashboard"
+  }
 };
