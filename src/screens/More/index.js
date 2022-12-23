@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Text, View, Image, TouchableOpacity } from "react-native";
+import React from "react";
+import { View } from "react-native";
 import { useDispatch } from "react-redux";
 import ProfileRow from "../../components/ProfileRow";
 import { useSelector } from "react-redux";

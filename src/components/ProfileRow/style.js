@@ -3,7 +3,6 @@ import theme from "../../config/theme";
 
 let styles = StyleSheet.create({
   container: {
-
     height: 50,
     paddingTop: 10,
   },
