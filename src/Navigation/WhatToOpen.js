@@ -7,6 +7,8 @@ import MainRouts from "./MainRouts";
 
 function WhatToOpen() {
   const user = useSelector((state) => state.auth);
+  const language = useSelector((state) => state.language.language);
+
   let [showSplash, setShowSplash] = useState(false);
 
   // to toggle splash screen but not on the first load
@@ -20,7 +22,7 @@ function WhatToOpen() {
         setShowSplash(false);
       }, 1000);
     }
-  }, [user.ID]);
+  }, [user.ID, language]);
 
   //to show and hide splash screen when change lang or log in and log out
   if (showSplash) {

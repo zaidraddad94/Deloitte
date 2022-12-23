@@ -7,7 +7,6 @@ let styles = StyleSheet.create({
     height: 50,
     marginBottom: 20,
     alignItems: "center",
-    flexDirection: "row",
     paddingHorizontal: 15,
   },
   TextInput: {

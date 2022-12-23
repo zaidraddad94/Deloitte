@@ -9,6 +9,7 @@ function DatePickerComponent({ date, onDateChange, title }) {
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <DatePicker
+        maximumDate={new Date(Date.now())}
         date={date}
         onDateChange={onDateChange}
         mode={"date"}

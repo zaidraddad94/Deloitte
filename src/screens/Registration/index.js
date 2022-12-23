@@ -10,12 +10,16 @@ import phoneValidation from "../../utilities/phoneValidation";
 import { login } from "../../redux/actions";
 import styles from "./style";
 import images from "../../config/images";
+import { strings } from "../../localization";
+import ChangeLanguage from "../../components/ChangeLanguage";
 
 export default function Registration() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState(__DEV__ ? "zaidrddad@gmail.com" : "");
   const [phone, setPhone] = useState(__DEV__ ? "0799795083" : "");
-  const [dateOfBirth, setDateOfBirth] = useState(__DEV__ ? new Date("1994-04-17") : new Date());
+  const [dateOfBirth, setDateOfBirth] = useState(
+    __DEV__ ? new Date("1994-04-17") : new Date()
+  );
   const [showErrors, setShowErrors] = useState(false);
 
   let makeAccount = () => {
@@ -41,7 +45,7 @@ export default function Registration() {
         icon2={null}
         value={email}
         onChangeText={setEmail}
-        placeholder="Email"
+        placeholder={strings.Registration.email}
         secureTextEntry={false}
         error={showErrors && emailValidation(email)}
         keyboardType={"email-address"}
@@ -51,7 +55,7 @@ export default function Registration() {
         icon2={null}
         value={phone}
         onChangeText={setPhone}
-        placeholder="Phone (07XXXXXXXX)"
+        placeholder={strings.Registration.phone}
         secureTextEntry={false}
         error={showErrors && phoneValidation(phone)}
         keyboardType={"phone-pad"}
@@ -59,9 +63,13 @@ export default function Registration() {
       <DatePickerComponent
         date={dateOfBirth}
         onDateChange={setDateOfBirth}
-        title={"Date of Birth"}
+        title={strings.Registration.date}
       />
-      <BigButton onPress={makeAccount} text={"Create My Account"} />
+      <ChangeLanguage />
+      <BigButton
+        onPress={makeAccount}
+        text={strings.Registration.createMyAccount}
+      />
     </View>
   );
 }
