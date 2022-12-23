@@ -11,7 +11,13 @@ function ProfileRow(props) {
         flexDirection: strings.getLanguage() == "en" ? "row" : "row-reverse",
       }}
     >
-      <Text adjustsFontSizeToFit style={styles.textName}>
+      <Text
+        adjustsFontSizeToFit
+        style={{
+          ...styles.textName,
+          textAlign: strings.getLanguage() == "en" ? "left" : "right",
+        }}
+      >
         {props.rowName}
       </Text>
 

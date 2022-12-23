@@ -15,9 +15,6 @@ let styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: 80,
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: "#dadae8",
   },
   title: {
     fontSize: 14,
