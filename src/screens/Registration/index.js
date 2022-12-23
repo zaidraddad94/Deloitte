@@ -32,7 +32,7 @@ export default function Registration() {
         email,
         phone,
         dateOfBirth,
-        ID: new Date(),
+        ID: new Date().getTime(),
       })
     );
   };

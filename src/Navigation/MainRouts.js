@@ -19,10 +19,10 @@ export default function MainRouts() {
     >
       <Tab.Screen
         options={{
-          title:strings.navBar.dashboard,
+          title:strings.NavBar.dashboard,
           headerShown: true,
           headerTitleAlign: "center",
-          tabBarLabel: strings.navBar.dashboard,
+          tabBarLabel: strings.NavBar.dashboard,
           tabBarActiveTintColor: theme.Secondary_Color,
           tabBarInactiveTintColor: theme.Gray_Color,
           tabBarIcon: ({ color, size }) => (
@@ -35,10 +35,10 @@ export default function MainRouts() {
 
       <Tab.Screen
         options={{
-          title:strings.navBar.more,
+          title:strings.NavBar.more,
           headerShown: true,
           headerTitleAlign: "center",
-          tabBarLabel: strings.navBar.more,
+          tabBarLabel: strings.NavBar.more,
           tabBarActiveTintColor: theme.Secondary_Color,
           tabBarInactiveTintColor: theme.Gray_Color,
           tabBarIcon: ({ color, size }) => (

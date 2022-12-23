@@ -1,9 +1,21 @@
 import { StyleSheet, Dimensions } from "react-native";
-import theme from "../../config/theme";
 const { height, width } = Dimensions.get("window");
-
 let styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+  },
+  rows: {
+    flex: 2,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 30,
+  },
+  button: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 30,
+  },
 });
 
 export default styles;

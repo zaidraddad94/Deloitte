@@ -8,8 +8,16 @@ export const en = {
     email: "Email",
     phone: "Phone (07XXXXXXXX)",
   },
-  navBar:{
+  NavBar:{
     more:"More",
     dashboard:"Dashboard"
+  },
+  More:{
+    logout:"Log out",
+    email:"Email",
+    phone:"Phone",
+    id:"Id",
+    date: "Date of Birth",
+
   }
 };
