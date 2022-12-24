@@ -1,16 +1,15 @@
 import React from "react";
-
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Icon from "react-native-vector-icons/MaterialIcons";
 import Dashboard from "../screens/Dashboard";
 import More from "../screens/More";
 import theme from "../config/theme";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import styles from "./style";
 import { strings } from "../localization";
 
 const Tab = createBottomTabNavigator();
 
-export default function MainRouts() {
+export default function MainRoutes() {
   return (
     <Tab.Navigator
       screenOptions={{

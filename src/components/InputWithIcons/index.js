@@ -4,6 +4,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import theme from "../../config/theme";
 import { strings } from "../../localization";
 import styles from "./style";
+
 function InputWithIcons({
   icon1,
   icon2,
@@ -42,4 +43,5 @@ function InputWithIcons({
     </View>
   );
 }
+
 export default InputWithIcons;

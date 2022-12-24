@@ -21,7 +21,7 @@ export const ar = {
   },
   Dashboard: {
     of: "من",
-    DataFound: "لم يتم العثور على نتائج",
+    DataNotFound: "لم يتم العثور على نتائج",
     Search: "بحث",
   },
 };

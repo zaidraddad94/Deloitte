@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 import { strings } from "../../localization";
 import styles from "./style";
 
-function ProfileRow(props) {
+function ProfileRow({ rowName, rowValue }) {
   return (
     <View
       style={{
@@ -18,7 +18,7 @@ function ProfileRow(props) {
           textAlign: strings.getLanguage() == "en" ? "left" : "right",
         }}
       >
-        {props.rowName}
+        {rowName}
       </Text>
 
       <Text
@@ -28,7 +28,7 @@ function ProfileRow(props) {
           textAlign: strings.getLanguage() == "en" ? "right" : "left",
         }}
       >
-        {props.rowValue}
+        {rowValue}
       </Text>
     </View>
   );

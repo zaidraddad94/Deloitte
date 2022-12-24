@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import theme from "../../config/theme";
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     height: 50,
     paddingTop: 10,

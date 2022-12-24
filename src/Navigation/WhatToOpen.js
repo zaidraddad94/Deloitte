@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { strings } from "../localization";
-
 import Splash from "../screens/Splash";
-import AuthRouts from "./AuthRouts";
-import MainRouts from "./MainRouts";
+import AuthRoutes from "./AuthRoutes";
+import MainRoutes from "./MainRoutes";
 
 function WhatToOpen() {
-  const user = useSelector((state) => state.auth);
+  const isLoggedIn = !!useSelector((state) => state?.auth?.ID);
   const language = useSelector((state) => state.language.language);
+  const [showSplash, setShowSplash] = useState(false);
 
-  let [showSplash, setShowSplash] = useState(false);
-
-  // to toggle splash screen 
+  // to toggle splash screen
   useEffect(() => {
     setShowSplash(true);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setShowSplash(false);
     }, 1000);
-  }, [user.ID, language]);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isLoggedIn, language]);
 
   useEffect(() => {
     language && strings.setLanguage(language);
@@ -30,10 +31,10 @@ function WhatToOpen() {
   }
 
   //this will be decided if there is user logged in or not
-  if (user.ID) {
-    return <MainRouts />;
+  if (isLoggedIn) {
+    return <MainRoutes />;
   } else {
-    return <AuthRouts />;
+    return <AuthRoutes />;
   }
 }
 

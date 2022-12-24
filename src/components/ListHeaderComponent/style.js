@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 const { width } = Dimensions.get("window");
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     alignItems: "center",
   },

@@ -1,14 +1,12 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import { Provider } from "react-redux";
+import { store, persistor } from "./redux/Store";
+import { PersistGate } from "redux-persist/integration/react";
+import WhatToOpen from "./Navigation/WhatToOpen";
+import Splash from "./screens/Splash";
 
-import {Provider} from 'react-redux';
-import {store, persistor} from './../redux/Store';
-import {PersistGate} from 'redux-persist/integration/react';
-
-import WhatToOpen from "./WhatToOpen";
-import Splash from "../screens/Splash";
-
-function AppWithNavigation() {
+function AppWithNavigationAndRedux() {
   return (
     <Provider store={store}>
       <PersistGate loading={<Splash />} persistor={persistor}>
@@ -20,4 +18,4 @@ function AppWithNavigation() {
   );
 }
 
-export default AppWithNavigation;
+export default AppWithNavigationAndRedux;

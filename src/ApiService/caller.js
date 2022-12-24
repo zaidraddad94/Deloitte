@@ -1,40 +1,40 @@
-import CLIENT from "./Client";
+import client from "./client";
 
 let state = {
   count: 1,
 };
 
 /**
- * interceptor function will be called at Queries
- * this will log all the inputs and outputs of api requests the index of the call and the total time and statuses
- * and it handles 401 and log the user out 
- * @takes 
- * type : string >> get , post
- * endPoint : string >> "/something"
- * Params: as obj >> {page:1} >> mostly for get requests
- * body : as obj >> {page:1} >> for post requests
+ * interceptor function will be called in ./queries
+ * this will log all the inputs and outputs of api requests, the number of the call and the total time and statuses
+ * and it handles 401 and log the user out
+ * @takes
+ * @param type : string >> get , post
+ * @param endPoint : string >> "/something"
+ * @param params: as obj >> {page:1} >> mostly for get requests
+ * @param body : as obj >> {page:1} >> for post requests
  * @returns
  * the api response
  */
 
-let API_CAll = (type, endPoint, Params, body = {}) => {
-  let client = CLIENT();
-  
+const caller = (type, endPoint, params = {}, body = {}) => {
+  const Client = client();
+
   //flat all params to string to get get request
   const searchParams = new URLSearchParams();
-  Object.keys(Params).forEach((key) => searchParams.append(key, Params[key]));
-  let params;
+  Object.keys(params).forEach((key) => searchParams.append(key, params[key]));
+  let FinalParams;
   if (searchParams.toString()) {
-    params = "?" + searchParams.toString();
+    FinalParams = "?" + searchParams.toString();
   } else {
-    params = "";
+    FinalParams = "";
   }
 
   //used to calculate request time
   state[state.count] = Date.now();
 
   //return the data after printing the data to console if the __DEV__ is on
-  return client[type](endPoint + params, body)
+  return Client[type](endPoint + FinalParams, body)
     .then((result) => {
       if (__DEV__) {
         console.log(
@@ -81,4 +81,4 @@ let API_CAll = (type, endPoint, Params, body = {}) => {
     });
 };
 
-export default API_CAll;
+export default caller;

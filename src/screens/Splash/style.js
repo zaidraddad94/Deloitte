@@ -1,8 +1,8 @@
-import { StyleSheet, Dimensions, ImageBackground } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import theme from "../../config/theme";
 const { height, width } = Dimensions.get("window");
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     height,
     width,

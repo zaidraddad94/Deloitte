@@ -13,7 +13,7 @@ function More() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth);
 
-  let logOut = () => {
+  const logOut = () => {
     dispatch(logout());
   };
 

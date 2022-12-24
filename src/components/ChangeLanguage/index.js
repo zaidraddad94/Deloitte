@@ -8,7 +8,7 @@ import { changeLanguage } from "../../redux/actions";
 function ChangeLanguage() {
   const dispatch = useDispatch();
 
-  let change = () => {
+  const change = () => {
     console.log(strings.getLanguage());
     if (strings.getLanguage() == "en") {
       strings.setLanguage("ar");

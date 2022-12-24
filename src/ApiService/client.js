@@ -2,39 +2,39 @@ import env from "../../environments/env.json";
 import axios from "axios";
 import { store } from "../redux/Store";
 
-let _state = {
-  CLIENT: false,
+const state = {
+  SavedClient: false,
   token: false,
 };
 
 /**
- * CLIENT  is function create axios client to be used in ApiCall function 
- * it dose handel the change of token  
+ * client  is function create axios client to be used in caller function
+ * it dose handel the change of token
  * @uses
  * env.API_BASE_URL
  * token
- * @returns 
- * axios client 
+ * @returns
+ * axios client
  */
 
-let CLIENT = () => {
-  let token = store.getState().auth.token;
+const client = () => {
+  const token = store.getState().auth.token;
 
   //check if there was no client or the token changed
-  if (!_state.CLIENT || !_state.token || _state.token !== token) {
+  if (!state.SavedClient || !state.token || state.token !== token) {
     // check if the token changed and set it before creating new client
-    if (!_state.token || _state.token !== token) {
+    if (!state.token || state.token !== token) {
       console.log("NewToken");
-      _state.token = token;
+      state.token = token;
     }
 
     console.log("NewClient");
     //create client save it then return it //HAPPENED FOR THE FIRST TIME or there is new token
-    const client = axios.create({
+    const NewClient = axios.create({
       baseURL: env.API_BASE_URL,
-      headers: _state.token
+      headers: state.token
         ? {
-            Authorization: _state.token,
+            Authorization: state.token,
             "Content-Type": "application/json",
             accept: "*/*",
           }
@@ -43,13 +43,13 @@ let CLIENT = () => {
             accept: "*/*",
           },
     });
-    _state.CLIENT = client;
-    return client;
+    state.SavedClient = client;
+    return NewClient;
   } else {
     //if there is already client and there is no change for the token >>  just return it
     console.log("OldClient");
-    return _state.CLIENT;
+    return state.SavedClient;
   }
 };
 
-export default CLIENT;
+export default client;

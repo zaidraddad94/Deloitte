@@ -1,9 +1,9 @@
 import React from 'react';
-import AppWithNavigation from './src/Navigation/AppWithNavigation';
+import AppWithNavigationAndRedux from './src/AppWithNavigationAndRedux';
 
 const App = () => {
   return (
-      <AppWithNavigation />
+      <AppWithNavigationAndRedux />
   );
 };
 

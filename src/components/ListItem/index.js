@@ -5,7 +5,7 @@ import styles from "./style";
 import moment from "moment";
 import "moment/locale/ar";
 
-let ListItem = ({ image, name, created, species }) => {
+const ListItem = ({ image, name, created, species }) => {
   return (
     <View style={styles.container}>
       <View
@@ -35,7 +35,7 @@ let ListItem = ({ image, name, created, species }) => {
           <Text
             style={{
               ...styles.dateText,
-              textAlign: strings.getLanguage() !== "en" ? "left" : "right",
+              textAlign: strings.getLanguage() == "ar" ? "left" : "right",
             }}
           >
             {moment(created).locale(strings.getLanguage()).fromNow()}

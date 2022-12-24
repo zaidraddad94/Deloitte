@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Image, View, Text, FlatList, RefreshControl } from "react-native";
-import { Queries } from "../../ApiServes/Queries";
+import { View, Text, FlatList, RefreshControl } from "react-native";
+import { queries } from "../../ApiService/queries";
 import InputWithIcons from "../../components/InputWithIcons";
 import ListHeaderComponent from "../../components/ListHeaderComponent";
 import ListItem from "../../components/ListItem";
@@ -14,38 +14,33 @@ export default function Dashboard() {
   const [data, setData] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [word, setWord] = useState("");
-  const [thereIsCallInProgress, setThereIsCallInProgress] =
-    React.useState(false);
+  const [thereIsCallInProgress, setThereIsCallInProgress] = useState(false);
 
   const getData = async (more = false) => {
     if (more) {
       if (hasNext) {
         if (!thereIsCallInProgress) {
           setThereIsCallInProgress(true);
-          let response = await Queries.GetAllCharacters({
+          const response = await queries.getAllCharacters({
             page: pageNumber,
             name: word,
           });
           setData([...data, ...response?.data?.results]);
           setPageNumber(pageNumber + 1);
-          setHasNext(!!response?.data?.info?.next ?? false);
+          setHasNext(Boolean(response?.data?.info?.next ?? false));
           setThereIsCallInProgress(false);
         }
       }
     } else {
       setThereIsCallInProgress(true);
-      let response = await Queries.GetAllCharacters({ page: 1, name: word });
+      const response = await queries.getAllCharacters({ page: 1, name: word });
       setPageNumber(2);
       setTotalCount(response?.data?.info?.count ?? 0);
-      setHasNext(!!response?.data?.info?.next ?? false);
+      setHasNext(Boolean(response?.data?.info?.next ?? false));
       setData(response?.data?.results ?? []);
       setThereIsCallInProgress(false);
     }
   };
-
-  useEffect(() => {
-    getData(false);
-  }, []);
 
   useEffect(() => {
     getData(false);
@@ -55,14 +50,7 @@ export default function Dashboard() {
     <View style={styles.container}>
       <View style={styles.searchInput}>
         <InputWithIcons
-          style={{
-            borderRadius: 30,
-            width: "90%",
-            height: 50,
-            marginBottom: 0,
-            alignItems: "center",
-            paddingHorizontal: 15,
-          }}
+          style={styles.inputStyle}
           icon1={"search"}
           icon2={word.length ? "delete" : null}
           icon2OnPress={() => setWord("")}
@@ -76,12 +64,12 @@ export default function Dashboard() {
       {data.length ? (
         <FlatList
           data={data}
-          keyExtractor={(item, i) => item.id}
+          keyExtractor={(item) => item.id}
           onEndReached={() => getData(true)}
           stickyHeaderIndices={[0]}
           onEndReachedThreshold={0.4}
           ListHeaderComponent={() => (
-            <ListHeaderComponent all={totalCount} sup={data.length} />
+            <ListHeaderComponent all={totalCount} sub={data.length} />
           )}
           ListFooterComponent={thereIsCallInProgress ? <Loading /> : null}
           renderItem={({ item }) => (
@@ -107,7 +95,7 @@ export default function Dashboard() {
         </View>
       ) : (
         <View style={styles.center}>
-          <Text>{strings.Dashboard.DataFound}</Text>
+          <Text>{strings.Dashboard.DataNotFound}</Text>
         </View>
       )}
     </View>

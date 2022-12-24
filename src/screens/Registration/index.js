@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Image, View } from "react-native";
 import { useDispatch } from "react-redux";
-
 import BigButton from "../../components/BigButton";
 import DatePickerComponent from "../../components/DatePickerComponent";
 import InputWithIcons from "../../components/InputWithIcons";
@@ -22,7 +21,7 @@ export default function Registration() {
   );
   const [showErrors, setShowErrors] = useState(false);
 
-  let makeAccount = () => {
+  const createMyAccount = () => {
     if (emailValidation(email) || phoneValidation(phone)) {
       setShowErrors(true);
       return;
@@ -44,7 +43,7 @@ export default function Registration() {
         icon1={"person"}
         icon2={null}
         value={email}
-        onChangeText={(email)=>setEmail(email.trim())}
+        onChangeText={(email) => setEmail(email.trim())}
         placeholder={strings.Registration.email}
         secureTextEntry={false}
         error={showErrors && emailValidation(email)}
@@ -67,7 +66,7 @@ export default function Registration() {
       />
       <ChangeLanguage />
       <BigButton
-        onPress={makeAccount}
+        onPress={createMyAccount}
         text={strings.Registration.createMyAccount}
       />
     </View>

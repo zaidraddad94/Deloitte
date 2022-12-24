@@ -21,7 +21,7 @@ export const en = {
   },
   Dashboard: {
     of: "of",
-    DataFound: "No Data Found",
+    DataNotFound: "No Data Found",
     Search: "Search",
   },
 };
