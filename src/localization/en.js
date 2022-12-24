@@ -8,16 +8,20 @@ export const en = {
     email: "Email",
     phone: "Phone (07XXXXXXXX)",
   },
-  NavBar:{
-    more:"More",
-    dashboard:"Dashboard"
+  NavBar: {
+    more: "More",
+    dashboard: "Dashboard",
   },
-  More:{
-    logout:"Log out",
-    email:"Email",
-    phone:"Phone",
-    id:"Id",
+  More: {
+    logout: "Log out",
+    email: "Email",
+    phone: "Phone",
+    id: "Id",
     date: "Date of Birth",
-
-  }
+  },
+  Dashboard: {
+    of: "of",
+    DataFound: "No Data Found",
+    Search: "Search",
+  },
 };

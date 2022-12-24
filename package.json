@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "expo start --dev-client",
-    "android": "react-native run-android",
+    "android": "npm run env:dev && react-native run-android",
+    "android:apk": "npm run env:dev && cd android && ./gradlew assemblerelease",
     "env:prod": "node scripts/set-env.js production",
     "env:staging": "node scripts/set-env.js staging",
     "env:dev": "node scripts/set-env.js development"
@@ -18,6 +19,7 @@
     "expo": "~47.0.9",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
+    "moment": "^2.29.4",
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-date-picker": "^4.2.6",

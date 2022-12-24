@@ -13,7 +13,8 @@ function InputWithIcons({
   secureTextEntry = false,
   icon2OnPress = () => {},
   error,
-  keyboardType,
+  keyboardType = "default",
+  style = {},
 }) {
   return (
     <View
@@ -21,16 +22,16 @@ function InputWithIcons({
         ...styles.inputView,
         backgroundColor: error ? theme.Error_Color : theme.White_Color,
         flexDirection: strings.getLanguage() == "en" ? "row" : "row-reverse",
-
+        ...style,
       }}
     >
       {icon1 ? <Icon name={icon1} size={24} /> : null}
       <TextInput
-        textAlign={strings.getLanguage() == "en" ?'left' : "right"}
+        textAlign={strings.getLanguage() == "en" ? "left" : "right"}
         secureTextEntry={secureTextEntry}
         style={styles.TextInput}
         placeholder={placeholder}
-        placeholderTextColor={theme.Prime_Color}
+        placeholderTextColor={theme.Gray_Color}
         onChangeText={onChangeText}
         value={value}
         keyboardType={keyboardType}

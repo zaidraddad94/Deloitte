@@ -8,7 +8,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import WhatToOpen from "./WhatToOpen";
 import Splash from "../screens/Splash";
 
-function AppWithNavication() {
+function AppWithNavigation() {
   return (
     <Provider store={store}>
       <PersistGate loading={<Splash />} persistor={persistor}>
@@ -20,4 +20,4 @@ function AppWithNavication() {
   );
 }
 
-export default AppWithNavication;
+export default AppWithNavigation;
