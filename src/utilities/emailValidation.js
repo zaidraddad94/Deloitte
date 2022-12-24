@@ -1,4 +1,4 @@
-let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
+let pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; 
 
 export default function emailValidation(str) {
   return !str.match(pattern);

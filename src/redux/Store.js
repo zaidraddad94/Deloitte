@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { legacy_createStore as createStore, combineReducers, applyMiddleware, compose } from "redux";
 import logger from "redux-logger";
 import { persistStore, persistReducer } from "redux-persist";
 import AsyncStorage from "@react-native-async-storage/async-storage";

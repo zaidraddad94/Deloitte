@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { strings } from "../localization";
 
 import Splash from "../screens/Splash";
 import AuthRouts from "./AuthRouts";
@@ -11,18 +12,17 @@ function WhatToOpen() {
 
   let [showSplash, setShowSplash] = useState(false);
 
-  // to toggle splash screen but not on the first load
-  const firstRender = useRef(true);
+  // to toggle splash screen 
   useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-    } else {
-      setShowSplash(true);
-      setTimeout(() => {
-        setShowSplash(false);
-      }, 1000);
-    }
+    setShowSplash(true);
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 1000);
   }, [user.ID, language]);
+
+  useEffect(() => {
+    language && strings.setLanguage(language);
+  }, []);
 
   //to show and hide splash screen when change lang or log in and log out
   if (showSplash) {

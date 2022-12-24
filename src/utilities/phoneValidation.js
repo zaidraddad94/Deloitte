@@ -1,4 +1,4 @@
-let pattern = /(079|078|077)([0-9]{7})$/;
+let pattern = /^07[789]\d{7}$/;
 
 export default function phoneValidation(str) {
   return !str.match(pattern);

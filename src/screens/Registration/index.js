@@ -44,7 +44,7 @@ export default function Registration() {
         icon1={"person"}
         icon2={null}
         value={email}
-        onChangeText={setEmail}
+        onChangeText={(email)=>setEmail(email.trim())}
         placeholder={strings.Registration.email}
         secureTextEntry={false}
         error={showErrors && emailValidation(email)}
