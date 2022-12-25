@@ -2,16 +2,21 @@
 React Native App
 
 
-## Table of Content:
 
+## Table of Content:
 - [About The App](#about-the-app)
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
 - [Setup](#setup)
+- [Credits](#credits)
 - [License](#license)
+
+
 
 ## About The App
 [Deloitte] is an react native app made according to the task requirements for react native devloper job by Deloitte Jordan
+
+
 
 ## Screenshots
 [google drive](https://photos.app.goo.gl/gGepqqvRvD6w4UnA9)
@@ -30,12 +35,20 @@ React Native App
  `axios` api calls
  
  
+ 
+ 
 ## Setup
 - download or clone the repository
 - run `yarn`
 - run npm script ` android ` to start the app
 - run npm script ` android:apk ` to create apk 
 - for ios run ` cd ios && pod install ` then start the app using xcode
+
+
+
+## Credits
+Thanks to:
+- [rick and morty api](https://rickandmortyapi.com/documentation/#rest)
 
 
 
